@@ -3,7 +3,7 @@
 
 # IFS05 - TELEMETRY
 
-Repositorio para el departamento de telemetría del IFS05 de la temporada 2022/2023.
+Repositorio para el departamento de Telemetry del IFS05 de la temporada 2022/2023.
 
 ## Primeros pasos:
 1. Crea una cuenta en GitHub si aún no tienes una.
