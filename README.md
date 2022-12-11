@@ -14,7 +14,8 @@ Repositorio para el departamento de Telemetry del IFS05 de la temporada 2022/202
         * [Tutorial de Git](https://git-scm.com/docs/gittutorial)
         * [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/)
     * Puede que quieras guardar una copia de [GitHub's Git Cheat Sheet](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf) como referencia.
-    
-3. Clona este repositorio en tu ordenador utilizando las URLs:
+
+3. Habla con tu jefe de departamento para que te añada al equipo dentro de la organización de GitHub.
+4. Clona este repositorio en tu ordenador utilizando las URLs:
     * SSH: `git@github.com:isc-fs/IFS05-TE.git`
     * HTTPS: `https://github.com/isc-fs/IFS05-TE.git`
