@@ -16,5 +16,5 @@ Repositorio para el departamento de telemetría del IFS05 de la temporada 2022/2
     * Puede que quieras guardar una copia de [GitHub's Git Cheat Sheet](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf) como referencia.
     
 3. Clona este repositorio en tu ordenador utilizando las URLs:
-    * SSH: git@github.com:isc-fs/IFS05-TE.git
-    * HTTPS: https://github.com/isc-fs/IFS05-TE.git
+    * SSH: `git@github.com:isc-fs/IFS05-TE.git`
+    * HTTPS: `https://github.com/isc-fs/IFS05-TE.git`
