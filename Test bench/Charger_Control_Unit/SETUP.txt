@@ -1,0 +1,44 @@
+En este documento se explican los datos seguidos para configurar la raspberry:
+
+1 - Rede Wifi movil
+	- ssid: 	"Red_movil_2021"
+	- psk:		"Luis1996"
+	- id_str:	"red_movil"	
+
+2 - Acceso:
+	- Hostname: 	ISCPowertrain (ISCPowertrain.local for putty access)
+	- User:		pi
+	- Password:	BestPowertrain
+	* NOTA: Se puede gnerar una llave de acceso para no tener que estar metiendo todo el rato la clave (puttygen command for Windows).
+	* En mi caso no he pouesto contraseña, pero tengo que cargar el archivo
+
+4 - Virtual environment
+El entorno virtual permite imortar librrerias y guardarlas en su version actual, para que en caso de que se actualicen, no tengamos que estar pendientes de si la nueva version es compatible
+sudo apt-get install can-utils
+pip3 install python-can
+pip3 install RPi.GPIO
+
+5 - CAN BUS:
+CAN bus registra si detecta un software connnectado y si hay algun problema en la inicialización
+
+
+
+
+PUESTA A PUNTO
+-------------------
+0 - Encender Red WIFI ordenador
+1 -  Open putty
+2 -  pi@ISCPowertrain.local
+3 - Password - BestPowertrain
+4 - source ISC/bin/activate
+5 - cd ISC/project/
+
+---------- Una vez conectado
+python3 main.py
+
+
+
+
+
+
+

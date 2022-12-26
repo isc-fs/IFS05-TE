@@ -1,0 +1,18 @@
+
+
+************************************************** 
+                   NEW SESSION 
+************************************************** 
+[2021-08-13 02:08:00] [__main__] [INFO] Level 1 - This message shows info appears on the cmd and also in the debug.log file
+[2021-08-13 02:08:00] [__main__] [WARNING] Level 2 - This message shows a warning appears on the cmd and also in the debug.log file
+[2021-08-13 02:08:00] [__main__] [ERROR] Level 3 - This message shows an error appears on the cmd and also in the debug.log file
+[2021-08-13 02:08:00] [__main__] [CRITICAL] Level 4 - This message is critical and appears on the cmd and also in the debug.log file
+
+
+************************************************** 
+                   NEW SESSION 
+************************************************** 
+[2021-08-13 02:09:25] [__main__] [INFO] Level 1 - This message shows info appears on the cmd and also in the debug.log file
+[2021-08-13 02:09:25] [__main__] [WARNING] Level 2 - This message shows a warning appears on the cmd and also in the debug.log file
+[2021-08-13 02:09:25] [__main__] [ERROR] Level 3 - This message shows an error appears on the cmd and also in the debug.log file
+[2021-08-13 02:09:25] [__main__] [CRITICAL] Level 4 - This message is critical and appears on the cmd and also in the debug.log file
