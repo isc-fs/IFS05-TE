@@ -102,6 +102,8 @@ debug/qrc_qml.cpp: ../TeslaUI/qml.qrc \
 		../TeslaUI/main.qml \
 		../TeslaUI/ui/LeftScreen/LeftScreen.qml \
 		../TeslaUI/ui/BottomBar/BottomBar.qml \
+		../TeslaUI/ui/assets/carRender.png \
+		../TeslaUI/ui/assets/carSettingsIcon.png \
 		../TeslaUI/ui/RightScreen/RightScreen.qml
 	C:\Qt\5.15.2\mingw81_64\bin\rcc.exe -name qml ..\TeslaUI\qml.qrc -o debug\qrc_qml.cpp
 

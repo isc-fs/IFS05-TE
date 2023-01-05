@@ -23,8 +23,8 @@ Rectangle {
     Map {
         anchors.fill: parent
         plugin: mapPlugin
-        center: QtPositioning.coordinate(59.91, 10.75) // Oslo
-        zoomLevel: 14
+        center: QtPositioning.coordinate(40.43005263281484, -3.712719398859364) // ICAI
+        zoomLevel: 17
     }
     width: parent.width * 2/3
 }

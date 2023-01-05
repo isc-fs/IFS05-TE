@@ -9,7 +9,15 @@ Rectangle {
         left: parent.left
     }
 
-    color: "green"
+    color: "white"
+
+    Image {
+        id: carRender
+        anchors.centerIn: parent
+        width: parent.width * .9
+        fillMode: Image.PreserveAspectFit
+        source: "qrc:/ui/assets/carRender.png"
+    }
 
 }
 
