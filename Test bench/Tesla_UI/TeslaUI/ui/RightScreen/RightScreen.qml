@@ -26,5 +26,69 @@ Rectangle {
         center: QtPositioning.coordinate(40.43005263281484, -3.712719398859364) // ICAI
         zoomLevel: 17
     }
+
+    Image {
+        id: lockIcon
+        anchors{
+            left: parent.left
+            top: parent.top
+            margins: 20
+        }
+
+        width: parent.width / 40
+        fillMode: Image.PreserveAspectFit
+        source: ( systemHandler.carLocked ? "qrc:/ui/assets/lock.png" : "qrc:/ui/assets/unlock.png")
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: systemHandler.setcarLocked(!systemHandler.carLocked)
+
+        }
+
+
+    }
+
+    Text {
+        id: dateTimeDisplay
+        anchors {
+            left: lockIcon.right
+            leftMargin: 30
+            bottom: lockIcon.bottom
+        }
+
+        font.pixelSize: 15
+        font.bold: true
+        color: "black"
+        text: systemHandler.currentTime
+    }
+
+    Text {
+        id: outdoorTemperatureDisplay
+        anchors {
+            left: dateTimeDisplay.right
+            leftMargin: 30
+            bottom: lockIcon.bottom
+        }
+
+        font.pixelSize: 15
+        font.bold: true
+        color: "black"
+        text: systemHandler.outdoorTemp + "°C"
+    }
+
+    Text {
+        id: userDislay
+        anchors {
+            left: outdoorTemperatureDisplay.right
+            leftMargin: 30
+            bottom: lockIcon.bottom
+        }
+
+        font.pixelSize: 15
+        font.bold: true
+        color: "black"
+        text: systemHandler.userName
+    }
+
     width: parent.width * 2/3
 }

@@ -6,5 +6,7 @@
         <file>ui/LeftScreen/LeftScreen.qml</file>
         <file>ui/assets/carRender.png</file>
         <file>ui/assets/carSettingsIcon.png</file>
+        <file>ui/assets/lock.png</file>
+        <file>ui/assets/unlock.png</file>
     </qresource>
 </RCC>
