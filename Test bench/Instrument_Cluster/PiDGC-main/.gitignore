@@ -1,0 +1,7 @@
+/source/build-display-Desktop-Release/
+/source/build-display-RPi3-Release/
+/buildroot/output/
+*.o
+moc_*
+/.idea/
+/source/rpi3-display/
