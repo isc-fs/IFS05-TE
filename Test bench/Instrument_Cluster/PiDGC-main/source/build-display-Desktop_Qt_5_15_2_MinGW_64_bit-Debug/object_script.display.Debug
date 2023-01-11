@@ -1,0 +1,16 @@
+debug/config.o
+debug/main.o
+debug/glwidget.o
+debug/serialworker.o
+debug/window.o
+debug/painter.o
+debug/vehiclevalues.o
+debug/indicators.o
+debug/hwdialog.o
+debug/qrc_resources.o
+debug/moc_glwidget.o
+debug/moc_serialcontroller.o
+debug/moc_serialworker.o
+debug/moc_window.o
+debug/moc_painter.o
+debug/moc_hwdialog.o
