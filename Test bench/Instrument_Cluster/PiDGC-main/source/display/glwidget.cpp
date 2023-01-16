@@ -3,7 +3,7 @@
 GLWidget::GLWidget(Painter *painter, QWidget *parent) : QOpenGLWidget(parent), painter(painter)
 {
     elapsed = 0;
-    setFixedSize(1280, 480);
+    setFixedSize(1920, 480);
     setAutoFillBackground(false);
 }
 

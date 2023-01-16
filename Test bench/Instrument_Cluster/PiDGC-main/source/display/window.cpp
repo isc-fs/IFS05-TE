@@ -10,7 +10,7 @@ Window::Window(VehicleValues &vehicle, Indicators &indicators)
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setWindowModality(Qt::ApplicationModal);
     setFocusPolicy(Qt::StrongFocus);
-    setGeometry(0, 0, 1280, 480);
+    setGeometry(0, 0, 1920, 480);
 
     GLWidget *openGL = new GLWidget(painter, this);
 

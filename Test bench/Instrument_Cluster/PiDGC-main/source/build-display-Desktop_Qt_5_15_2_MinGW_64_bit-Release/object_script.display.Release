@@ -1,0 +1,16 @@
+release/config.o
+release/main.o
+release/glwidget.o
+release/serialworker.o
+release/window.o
+release/painter.o
+release/vehiclevalues.o
+release/indicators.o
+release/hwdialog.o
+release/qrc_resources.o
+release/moc_glwidget.o
+release/moc_serialcontroller.o
+release/moc_serialworker.o
+release/moc_window.o
+release/moc_painter.o
+release/moc_hwdialog.o
