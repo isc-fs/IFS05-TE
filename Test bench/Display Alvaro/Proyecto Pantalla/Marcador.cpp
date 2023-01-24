@@ -20,6 +20,6 @@ class Marcador {
     }
 
     int getId(){
-      return id
+      return Id
     }
 };
