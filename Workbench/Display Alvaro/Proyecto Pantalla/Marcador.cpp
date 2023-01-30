@@ -2,6 +2,10 @@ class Marcador {
   private:
     float valor;
     int Id;
+    
+// lo que yo pienso que hay que hacer es con esta clase, 
+// ir haciendo objetos para cada una de las cajas que pongamos en el display. 
+// Habría que ver cómo hacemos para las barras de la aceleración, revoluciones y SoC
 
   public:
     Marcador(){

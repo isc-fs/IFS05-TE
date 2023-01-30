@@ -16,10 +16,10 @@ Window {
 
     }
 
-    RightScreen {
-        id: rightscreen
+    //RightScreen {
+      //  id: rightscreen
 
-    }
+   // }
 
     LeftScreen {
         id: leftscreen

@@ -1,6 +1,6 @@
 import QtQuick 2.15
-import QtPositioning 5.15
-import QtLocation 5.15
+//import QtPositioning 5.15
+//import QtLocation 5.15
 
 Rectangle {
     id: rightScreen
@@ -10,22 +10,14 @@ Rectangle {
         right: parent.right
     }
 
-    Plugin {
-        id: mapPlugin
-        name: "mapboxgl" // "mapboxgl", "esri", ...
+   // Plugin {
+       // id: mapPlugin
+       // name: "mapboxgl" // "mapboxgl", "esri", ...
         // specify plugin parameters if necessary
         // PluginParameter {
         //     name:
         //     value:
         // }
-    }
-
-    Map {
-        anchors.fill: parent
-        plugin: mapPlugin
-        center: QtPositioning.coordinate(40.43005263281484, -3.712719398859364) // ICAI
-        zoomLevel: 17
-    }
 
     Image {
         id: lockIcon
