@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="main.qml">../TeslaUI/main.qml</file>
+        <file alias="ui/BottomBar/BottomBar.qml">../TeslaUI/ui/BottomBar/BottomBar.qml</file>
+        <file alias="ui/RightScreen/RightScreen.qml">../TeslaUI/ui/RightScreen/RightScreen.qml</file>
+        <file alias="ui/LeftScreen/LeftScreen.qml">../TeslaUI/ui/LeftScreen/LeftScreen.qml</file>
+        <file alias="ui/assets/carRender.png">../TeslaUI/ui/assets/carRender.png</file>
+        <file alias="ui/assets/carSettingsIcon.png">../TeslaUI/ui/assets/carSettingsIcon.png</file>
+        <file alias="ui/assets/lock.png">../TeslaUI/ui/assets/lock.png</file>
+        <file alias="ui/assets/unlock.png">../TeslaUI/ui/assets/unlock.png</file>
+    </qresource>
+</RCC>

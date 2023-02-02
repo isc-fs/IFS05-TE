@@ -1,7 +1,7 @@
-import QtQuick
+import QtQuick 2.15
 
 Rectangle {
-    id: display
+    id: leftScreen
     anchors {
         top: parent.top
         bottom: bottombar.top
