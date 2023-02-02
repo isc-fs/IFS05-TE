@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick 2.15
 import QtQuick.Window 2.15
-import "Components"
+
 
 Window {
     width: 1280
@@ -55,9 +55,6 @@ Window {
         }
     }
 
-    Components {
-        id: components
-    }
 }
 
 
