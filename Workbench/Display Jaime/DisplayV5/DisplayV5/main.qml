@@ -52,7 +52,7 @@ Window {
         border.width: 2
         radius: 8
         x: 100
-        y: 215
+        y: 216
         height: 123
         width: 123
 
@@ -123,7 +123,7 @@ Window {
         border.color: "green"
         border.width: 2
         radius: 8
-        x: 753
+        x: 754
         y: 50
         height: 123
         width: 123
@@ -141,7 +141,7 @@ Window {
         border.color: "yellow"
         border.width: 2
         radius: 8
-        x: 753
+        x: 754
         y: 176
         height: 123
         width: 123
