@@ -1,0 +1,3 @@
+Dashboard -> código en java modificado
+DisplayEclipse -> código en java de Álvaro adaptado para compilar en terminal de Windows
+DisplayV5 -> comienzo código en Qt
