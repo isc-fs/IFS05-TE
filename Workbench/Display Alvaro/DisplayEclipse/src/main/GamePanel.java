@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-
 public class GamePanel extends JPanel implements Runnable{
 	final int ogTileSize = 32;
 	final int scale = 3;
