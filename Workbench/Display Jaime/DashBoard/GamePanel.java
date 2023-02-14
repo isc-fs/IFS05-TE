@@ -10,9 +10,15 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
+import java.io.*;
+import java.lang.Thread;
+
 
 public class GamePanel extends JPanel implements Runnable{
 	Thread gameThread;
+
+	private boolean showRectangle = true;
+	static boolean visible = true;
 	
 	Color fondo = new Color(25, 26, 30);
 	Color ISC = new Color(251, 187, 28);
@@ -51,6 +57,14 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	public void update()
 	{
+		// temporizador para cambiar el valor de la variable showRectangle
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		showRectangle = !showRectangle; // alterna el valor de la variable booleana entre true y false
 		
 	}
 	
@@ -59,8 +73,25 @@ public class GamePanel extends JPanel implements Runnable{
 			super.paintComponent(g); 		
 									 		
 		Graphics2D g2 = (Graphics2D)g;
+
+// warnings
+		if (visible && showRectangle) {
+			g2.setColor(Color.red);
+			int x1 = 40;
+			int y1 = 103;
+			g2.fillRoundRect(x1, y1, 185, 212, 10, 10);
+			g2.drawRoundRect(30, 93, 205, 232, 10, 10);
+			g2.setColor(Color.white);
+			g2.setFont(font4);	
+			FontMetrics fm1 = g.getFontMetrics(); 
+			int textWidth1 = fm1.stringWidth("WARNING");
+			int textHeight1 = fm1.getHeight();
+			int x_text1 = (185 - textWidth1) / 2 + x1; 
+			int y_text1 = (212 - textHeight1) / 2 + fm1.getAscent() + y1;
+			g2.drawString("WARNING", x_text1, y_text1);
+		}
 		
-		// bloques de info 	drawRoundRect​(int x, int y, int width, int height, int arcWidth, int arcHeight)
+		// drawRoundRect​(int x, int y, int width, int height, int arcWidth, int arcHeight)
 // inversor
 		g2.setColor(Color.orange);			
 		int x = 265;
@@ -159,21 +190,22 @@ public class GamePanel extends JPanel implements Runnable{
 		g2.setFont(font2);
 	    g2.drawString("60%", 590, 370);	   
 
-// throttle
-		g2.setColor(Color.green);			
+// brake
+		g2.setColor(Color.red);			
 		g2.drawRoundRect(1050, 40, 60, 320, 10, 10);
 		g2.fillRoundRect(1050, 264, 60, 96, 10, 10);
 	    g2.setColor(Color.white);
 		g2.setFont(font4);
 	    g2.drawString("30%", 1050, 200);	
 
-// brake
-		g2.setColor(Color.red);			
+// throttle
+		g2.setColor(Color.green);			
 		g2.drawRoundRect(1150, 40, 60, 320, 10, 10);
 		g2.fillRoundRect(1150, 137, 60, 224, 10, 10);
 	    g2.setColor(Color.white);
 		g2.setFont(font4);
 	    g2.drawString("70%", 1150, 200);	
-  	    
+
 	}
 }
+
