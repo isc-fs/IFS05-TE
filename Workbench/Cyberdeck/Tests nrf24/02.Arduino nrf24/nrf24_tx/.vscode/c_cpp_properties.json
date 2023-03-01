@@ -2,23 +2,6 @@
     "version": 4,
     "configurations": [
         {
-            "name": "Win32",
-            "compilerPath": "",
-            "compilerArgs": [],
-            "intelliSenseMode": "",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "forcedInclude": [],
-            "cStandard": "",
-            "cppStandard": "",
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ]
-        },
-        {
             "name": "Arduino",
             "compilerPath": "C:\\Users\\moran\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++",
             "compilerArgs": [
@@ -34,7 +17,7 @@
             "intelliSenseMode": "gcc-x64",
             "includePath": [
                 "C:\\Users\\moran\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
-                "C:\\Users\\moran\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard",
+                "C:\\Users\\moran\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\eightanaloginputs",
                 "C:\\Users\\moran\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\SPI\\src",
                 "c:\\users\\moran\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
                 "c:\\users\\moran\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
@@ -48,7 +31,7 @@
             "defines": [
                 "F_CPU=16000000L",
                 "ARDUINO=10607",
-                "ARDUINO_AVR_UNO",
+                "ARDUINO_AVR_PRO",
                 "ARDUINO_ARCH_AVR",
                 "__DBL_MIN_EXP__=(-125)",
                 "__HQ_FBIT__=15",

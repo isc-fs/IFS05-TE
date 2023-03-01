@@ -1,0 +1,6 @@
+{
+    "port": "COM5",
+    "configuration": "cpu=16MHzatmega328",
+    "board": "arduino:avr:pro",
+    "sketch": "nrf24_tx.ino"
+}

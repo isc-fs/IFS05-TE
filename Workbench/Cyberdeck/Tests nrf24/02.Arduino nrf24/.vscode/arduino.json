@@ -2,5 +2,5 @@
     "port": "COM3",
     "board": "arduino:avr:uno",
     "programmer": "avrisp",
-    "sketch": "nrf24.ino"
+    "sketch": "nrf24_tx\\nrf24_tx.ino"
 }
