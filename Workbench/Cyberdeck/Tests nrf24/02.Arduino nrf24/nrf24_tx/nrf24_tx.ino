@@ -102,6 +102,7 @@ void loop()
 
 void send_reading(byte protocol, float temperature, float humidity)
 {
+    //Calcula el tamaño del mensaje
     int offset = 0;
     Serial.println("Preparing payload.");
     memcpy(payload + offset, (byte *)(&protocol), sizeof(protocol));
