@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Dashboard.qml</file>
+        <file>Warning.qml</file>
+        <file>Inverter.qml</file>
+        <file>Accumulator.qml</file>
+        <file>Engine.qml</file>
+        <file>Speed.qml</file>
+        <file>Throttle.qml</file>
+        <file>Brake.qml</file>
+        <file>Soc.qml</file>
+        <file>LeftTires.qml</file>
+        <file>RightTires.qml</file>
+    </qresource>
+</RCC>
