@@ -31,7 +31,8 @@ public class GamePanel extends JPanel implements Runnable{
 	final int screenWidth = tileSize * maxScreenCol;
 	final int screenHeight = tileSize * maxScreenRow;
 	
-	Image logo = new ImageIcon("C:\\ISC GitHub\\ISC_logo_transparent.jpg").getImage();
+	//Image logo = new ImageIcon("C:\\ISC GitHub\\ISC_logo_transparent.jpg").getImage();
+	Image logo = Toolkit.getDefaultToolkit().getImage("C:\\ISC GitHub\\ISC_logo_transparent.jpg");
 
 	
 	public GamePanel()
