@@ -9,16 +9,15 @@ Rectangle {
     border.width: 1
     radius: 10
 
-     property real speedValue: 133
+    property real speedValue: 0
 
     Text {
-            id: speedText
-            text: Math.round(speedValue)
-            font.family: "Helvetica SemiBold"
-            font.pixelSize: 180
-            color: "white"
-            anchors.horizontalCenter: speed.horizontalCenter
-            anchors.verticalCenter: speed.verticalCenter
-        }
-
+        id: speedText
+        text: Math.round(speedValue)
+        font.family: "Helvetica SemiBold"
+        font.pixelSize: 180
+        color: "white"
+        anchors.horizontalCenter: speed.horizontalCenter
+        anchors.verticalCenter: speed.verticalCenter
+    }
 }

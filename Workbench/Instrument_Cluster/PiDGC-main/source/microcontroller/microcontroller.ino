@@ -13,6 +13,7 @@
 #include "buzzerSound.h"
 #include "patternBuzzer.h"
 #include "indicators.h"
+#include "datalogger.h"
 
 SDCard sdCard;
 Values values;
@@ -23,10 +24,20 @@ BuzzerSound milSound(BUZZER, 3000, 30000);
 PatternBuzzer fuelBuzzer(BUZZER, (unsigned int []){1,1,1,1,0,1,1,1,1}, 9, 250, 750, 600000);
 PatternBuzzer gaugeLiteBuzzer(BUZZER, (unsigned int []){1,1,0}, 3, 250, 750, 3000);
 
+USBHost usbHost;
+USBHub usbHub(usbHost);
+USBDrive usbDrive(usbHost);
+USBFilesystem usbFS(usbHost);
+DataLogger dataLogger;
+
 void setup() {
   // Turn on LED as a power indicator
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
+
+  // High priority logging switch & LED
+  pinMode(HPL_LED, OUTPUT);
+  pinMode(HPL_INPUT, INPUT);
 
   // Initialize serial
   Serial.begin(115200);
@@ -36,6 +47,9 @@ void setup() {
 
   // Configure CAN bus
   canInit();
+
+  // Initialize datalogger
+  dataLogger.init();
 
   // Initialize smoothed variables
   values.fuelLevel.begin(SMOOTHED_AVERAGE, 100);
@@ -81,10 +95,37 @@ void loop() {
     values.highFrequency -= HI_FREQ;
 
     // Request engine RPM
-    canSend(0x0c);
+    canSendOBD2(0x0C);
 
     // Request MAP
-    canSend(0x0B);
+    canSendOBD2(0x0B);
+
+    // Request IAT
+    canSendOBD2(0x0F);
+    
+    // Request Timing Advance
+    canSendOBD2(0x0E);
+    
+    // Request Throttle Position (Relative)
+    canSendOBD2(0x45);
+
+    // Request Foot Pedal Position (Relative)
+    canSendOBD2(0x5A);
+
+    // Request Oxygen Sensor 1 - Air-Fuel Equivalence Ratio
+    canSendOBD2(0x34);
+
+    // Request Short Term Fuel Trim - Bank 1
+    canSendOBD2(0x06);
+
+    // Request Long Term Fuel Trim - Bank 1
+    canSendOBD2(0x07);
+
+    // Request Throttle Inlet Pressure
+    canSendOBD2(0x70);
+
+    // Request Fuel Rail Pressure
+    canSendOBD2(0x23);
 
     cli();
     unsigned int numPulses = values.vssPulseCounter;
@@ -113,9 +154,34 @@ void loop() {
         values.mph.add(0.0);
     }
 
-    // Send rpm & boost
+    // Send speed to ECU
+    canSendSpeedMPH(values.mph.get());
+
+    {
+      // Update blinkers
+      readAnalogPins();
+  
+      bool prevLeftBlinker = values.leftBlinker;
+      bool prevRightBlinker = values.rightBlinker;
+  
+      values.leftBlinker = readLeftBlinker();
+      values.rightBlinker = readRightBlinker();
+  
+      if (values.blinkerSound) {
+        if ((!prevLeftBlinker && values.leftBlinker) || (!prevRightBlinker && values.rightBlinker)) {
+          blinkerSound.play();
+        }
+      }
+    }
+
+    // Write to data log
+    bool hplInput = digitalRead(HPL_INPUT);
+    digitalWrite(HPL_LED, hplInput);
+    dataLogger.writeValues(values, hplInput);
+
+    // Send rpm, boost, and blinkers
     char output[256] = {0};
-    sprintf(output, "rpm:%d\nboost:%f", values.rpm, values.boostPressure);
+    sprintf(output, "rpm:%d\nboost:%f\nleft:%d\nright:%d", values.rpm, values.boostPressure, values.leftBlinker, values.rightBlinker);
     Serial.println(output);
   }
 
@@ -123,21 +189,8 @@ void loop() {
   if (values.mediumFrequency >= MED_FREQ) {
     values.mediumFrequency -= MED_FREQ;
 
-    readAnalogPins();
-
-    bool prevLeftBlinker = values.leftBlinker;
-    bool prevRightBlinker = values.rightBlinker;
     bool prevMil = values.mil;
-
-    values.leftBlinker = readLeftBlinker();
-    values.rightBlinker = readRightBlinker();
     values.mil = readMIL();
-
-    if (values.blinkerSound) {
-      if ((!prevLeftBlinker && values.leftBlinker) || (!prevRightBlinker && values.rightBlinker)) {
-        blinkerSound.play();
-      }
-    }
 
     if (!prevMil && values.mil) {
       milSound.play();
@@ -147,21 +200,27 @@ void loop() {
       gaugeLiteBuzzer.play();
     }
 
+    // Request IAT
+    canSendOBD2(0x0F);
+
     char output[512] = {0};
     sprintf(
       output, 
-      "voltage:%f\nfuel:%f\nhi:%d\nleft:%d\nlow:%d\nright:%d\nmil:%d\nglite:%d\nmph:%d\noil:%f",
+      "voltage:%f\nfuel:%f\nhi:%d\nlow:%d\nmil:%d\nglite:%d\nmph:%d\noil:%f",
       values.voltage.get(),
       values.fuelLevel.get(),
       readHighBeams(),
-      values.leftBlinker,
       readLowBeams(),
-      values.rightBlinker,
       values.mil,
       readGaugeLights(),
       values.mph.get(),
       values.oilPressure
     );
+    Serial.println(output);
+
+    float tripOdometer = sdCard.readFloat(TRIP_FILE, 0.0f);
+    float odometer = sdCard.readFloat(ODOMETER_FILE, 0.0f);
+    sprintf(output, "odo:%f,%f", tripOdometer, odometer);
     Serial.println(output);
   }
 
@@ -170,10 +229,10 @@ void loop() {
     values.lowFrequency -= LOW_FREQ;
 
     // Request coolant temp
-    canSend(0x05);
+    canSendOBD2(0x05);
 
     // Request Barometric Pressure
-    canSend(0x33);
+    canSendOBD2(0x33);
 
     char output[256] = {0};
     sprintf(output, "coolant:%d", values.coolantTemp);
