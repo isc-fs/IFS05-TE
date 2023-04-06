@@ -6,9 +6,9 @@ Window {
     width: 1920
     height: 400
     maximumWidth: 1920
-    maximumHeight: 400
+    maximumHeight: 480
     minimumWidth: 1920
-    minimumHeight: 400
+    minimumHeight: 480
     title: "Dashboard"
 
     Dashboard {}

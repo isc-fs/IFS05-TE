@@ -13,10 +13,11 @@ public class Main {
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] devices = ge.getScreenDevices();
         GraphicsDevice device = devices[0];
-		device.setFullScreenWindow(window); 	
+			
 
-		window.setResizable(false);
-		window.setTitle("Display");
+		//window.setResizable(false);
+		//window.setTitle("Display");
+		window.setUndecorated(true);
 		
 		
 		
