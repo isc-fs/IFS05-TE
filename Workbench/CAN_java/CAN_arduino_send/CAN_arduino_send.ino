@@ -2,7 +2,7 @@
 #include "mcp_can.h"
 
 // Define the CAN bus pins
-#define CAN_CS_PIN 6
+#define CAN_CS_PIN 8
 MCP_CAN CAN(CAN_CS_PIN); // Set CS pin for MCP2515 module
 
 // Define the CAN message IDs
@@ -19,6 +19,8 @@ MCP_CAN CAN(CAN_CS_PIN); // Set CS pin for MCP2515 module
 #define BRAKE_LEN 1
 #define TIMESTAMP_LEN 4
 
+#define CAN_KBPS CAN_250KBPS
+
 // Define the variables to send
 int I_Acum = 0;
 int DC_bus = 0;
@@ -26,15 +28,19 @@ int Throttle = 0;
 int Brake = 0;
 unsigned long timestamp = 0;
 
-void setup() {
-  Serial.begin(9600); // Start serial communication for debugging
+void setup() 
+{
+  Serial.begin(115200);
 
-  // Initialize the CAN bus
-  if (CAN.begin(MCP_ANY, CAN_500KBPS, MCP_16MHZ) == CAN_OK) {
-    Serial.println("CAN bus initialized");
+  // Inicialización del CAN de Telemetría
+  if (CAN.begin(MCP_ANY,CAN_KBPS,MCP_20MHZ) == CAN_OK) {
+    Serial.println("CAN: Inicializacion correcta!");
+    CAN.setMode(MCP_NORMAL);
   } else {
-    Serial.println("Error initializing CAN bus");
+    Serial.println("CAN: Fallo al incializar, reinicie por favor");
+    while(1);
   }
+
 }
 
 void loop() {
